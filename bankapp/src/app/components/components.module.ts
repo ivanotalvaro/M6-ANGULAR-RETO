@@ -8,8 +8,6 @@ import { LoginComponent } from './login/login.component';
 import { RouterModule } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { AboutItemComponent } from './about/about-item/about-item.component';
-import { NewsComponent } from './news/news.component';
-import { NewComponent } from './news/new/new.component';
 import { ServicesComponent } from './services/services.component';
 import { MenuComponent } from './menu/menu.component';
 
@@ -21,9 +19,7 @@ import { MenuComponent } from './menu/menu.component';
     HomeComponent,
     LoginComponent,
     AboutComponent,
-    AboutItemComponent,
-    NewsComponent,
-    NewComponent,
+    AboutItemComponent,    
     ServicesComponent,
     MenuComponent
   ],
