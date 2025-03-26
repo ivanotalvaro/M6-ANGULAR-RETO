@@ -1,60 +1,120 @@
-section {
-  background-color: #f3f3f5;
-  padding-top: 160px;
-  padding-bottom: 60px;
-}
-
-.hero-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  max-width: 1140px;
+.carousel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
   margin: 0 auto;
 }
 
-video {
+.image-container {
   width: 100%;
+  max-height: 400px;
+  overflow: hidden;
 }
 
-h1 {
-  font-size: 50px;
-  font-family: "Charlie Display", sans-serif;
-  font-weight: normal;
-  line-height: 60px;
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s ease-in-out;
 }
 
-p {
-  font-size: 20px;
-  margin-bottom: 30px;
+.indicators {
+  display: flex;
+  justify-content: center;
   margin-top: 10px;
 }
 
-input {
-  padding: 10px;
-  font-size: 17px;
-  font-family: "Charlie Text", sans-serif;
-  border-radius: 5px;
-  border: 1px solid rgb(223, 225, 230);
-  width: 300px;
-}
-
-button {
-  border-radius: 5px;
-  color: white;
-  background-color: #0065ff;
-  padding: 10px;
+.indicator {
+  background-color: #ddd;
   border: none;
-  font-size: 17px;
-  font-family: "Charlie Text", sans-serif;
-  font-weight: 600;
+  padding: 5px 10px;
+  margin: 0 5px;
   cursor: pointer;
-  transition: 0.3s background-color;
 }
 
-button:hover {
-  background-color: rgb(7, 71, 166);
+.indicator.active {
+  background-color: #007bff;
+  color: white;
 }
 
-.form-container {
+.navigation-container {
   display: flex;
-  gap: 20px;
+  justify-content: center;
+  background-color: #FFE4E1;
+  padding: 10px 0;
+  
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.navigation-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.nav-item:hover {
+  transform: scale(1.05);
+}
+
+.nav-item img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 8px;
+}
+
+.nav-item span {
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .navigation-menu {
+      gap: 20px;
+  }
+
+  .nav-item {
+      flex-grow: 1;
+  }
+
+  .nav-item span {
+      font-size: 12px;
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left {
+  flex: 1;
+  text-align: left;
+  padding-left: 30px;
+}
+
+.center {
+  flex: 1;
+  text-align: center;
+}
+
+.right {
+  flex: 1;
+  text-align: right;
+  padding-right: 20px;
 }

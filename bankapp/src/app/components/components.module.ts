@@ -6,10 +6,8 @@ import { HeroComponent } from './hero/hero.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RouterModule } from '@angular/router';
-import { AboutComponent } from './about/about.component';
-import { AboutItemComponent } from './about/about-item/about-item.component';
-import { ServicesComponent } from './services/services.component';
 import { MenuComponent } from './menu/menu.component';
+import { TransactionsComponent } from './transactions/transactions.component';
 
 @NgModule({
   declarations: [
@@ -17,11 +15,10 @@ import { MenuComponent } from './menu/menu.component';
     AlertComponent,
     HeroComponent,
     HomeComponent,
-    LoginComponent,
-    AboutComponent,
-    AboutItemComponent,    
-    ServicesComponent,
-    MenuComponent
+    LoginComponent,    
+    MenuComponent,
+    TransactionsComponent
+    
   ],
   imports: [
     CommonModule,
@@ -30,7 +27,7 @@ import { MenuComponent } from './menu/menu.component';
   exports: [
     HeaderComponent,
     AlertComponent,
-    HeroComponent                                                                     
+    HeroComponent,    
   ]
 })
 export class ComponentsModule { }
