@@ -2,6 +2,7 @@ import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { State } from '../state/state';
 import { ConsultasaldoService } from 'src/app/servicios/consultasaldo.service';
+import { ConsultaHistoriaService } from 'src/app/servicios/consultahistoria.service';
 
 @Component({
   selector: 'app-transactions',
@@ -16,8 +17,13 @@ export class TransactionsComponent implements OnInit {
   tipoCuenta: any;
   nroCuenta: any;
   mostrarSaldo: boolean = false;
+  mostrarHistoria: boolean = false;
+  codigoTransaccion: any;
+  valortransaccion: any;
+  historialTransacciones: any[] = [];
 
-  constructor(private datePipe: DatePipe, public state: State, private consultasaldoService: ConsultasaldoService) {}
+  constructor(private datePipe: DatePipe, public state: State, private consultasaldoService: ConsultasaldoService,
+    private consultahistoriaService: ConsultaHistoriaService) { }
 
   ngOnInit(): void {
     this.actualizarFechaHora();
@@ -30,13 +36,24 @@ export class TransactionsComponent implements OnInit {
     this.fechaActual = this.datePipe.transform(ahora, 'dd/MM/yyyy');
   }
 
-  getSaldo():void{
-    this.consultasaldoService.getSaldo().subscribe((data)=>{
+  getSaldo(): void {
+    this.consultasaldoService.getSaldo().subscribe((data) => {
       console.log(data);
       this.tipoCuenta = data.tipoCuenta;
       this.nroCuenta = data.numeroCuenta;
       this.saldoCuenta = data.saldo;
       this.mostrarSaldo = true;
+      this.mostrarHistoria = false;
+    }
+    );
+  }
+
+  getHistoria(): void {
+    this.consultahistoriaService.getHistoria().subscribe((data) => {      
+      this.historialTransacciones = data;
+      console.log(this.historialTransacciones);      
+      this.mostrarHistoria = true;
+      this.mostrarSaldo = false;
     }
     );
   }

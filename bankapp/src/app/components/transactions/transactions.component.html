@@ -39,14 +39,35 @@
     <h2>Consultas</h2>
     <div class="consults">
       <button (click)="getSaldo()">Saldo Cuenta</button>              
-      <button>Historial de transacciones</button>      
+      <button (click)="getHistoria()">Historial de transacciones</button>      
     </div>
     
     <div class="saldo" *ngIf="mostrarSaldo">
       <h3>Saldo de la cuenta</h3>
       <p><strong>Tipo cuenta:</strong> {{tipoCuenta}}</p>
       <p><strong>Número de Cuenta:</strong> {{nroCuenta}}</p>
-      <p><strong>Saldo Cuenta:</strong> {{saldoCuenta | currency:'COP'}}</p>
+      <p><strong>Saldo Cuenta:</strong> {{saldoCuenta | currency}}</p>
+    </div>
+
+    <div class="historia" *ngIf="mostrarHistoria">
+      <h3>Historial de Transacciones</h3>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Fecha</th>
+            <th>Valor</th>            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let transaccion of historialTransacciones">
+            <td>{{ transaccion.codigoTransaccion }}</td>
+            <td>{{ transaccion.fechaHora.substring(0, 10) }}</td>
+            <td style="text-align: right;">{{ transaccion.monto | currency }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
       
   </div>
