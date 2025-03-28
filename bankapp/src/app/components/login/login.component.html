@@ -14,13 +14,15 @@
             <div class="login-form">
                 <div class="form-group">
                     <label>Si no tienes un usuario asignado ingresa con tu documento de identidad</label>
-                    <input type="text" placeholder="Ingresa tu usuario">
-                </div>
-                <div class="form-group">
-                    <label>Contraseña</label>
-                    <input type="password" placeholder="Ingresa tu contraseña">
-                </div>
-                <button class="continue-btn">Continuar</button>
+                        <form [formGroup]="loginForm" (ngSubmit)="submit()">
+                          <fieldset>
+                            <input type="email" name="email" placeholder="Enter your email" formControlName="email">        
+                          </fieldset>
+                          <button class="continue-btn" type="submit">Continue</button>                      
+                          <!-- {{state.userEmail$ | async}} -->
+                        </form>
+                </div>               
+                
                 <div class="links">
                     <a href="#">¿Olvidaste tu usuario?</a>
                     <a href="#">¿Problemas para conectarte?</a>
@@ -48,3 +50,6 @@
         Copyright © 2025 BankApp S.A.
     </div>
 </body>
+
+
+

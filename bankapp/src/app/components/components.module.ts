@@ -8,6 +8,9 @@ import { LoginComponent } from './login/login.component';
 import { RouterModule } from '@angular/router';
 import { MenuComponent } from './menu/menu.component';
 import { TransactionsComponent } from './transactions/transactions.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { CrearoperacionesComponent } from './crearoperaciones/crearoperaciones.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +20,14 @@ import { TransactionsComponent } from './transactions/transactions.component';
     HomeComponent,
     LoginComponent,    
     MenuComponent,
-    TransactionsComponent
-    
+    TransactionsComponent,
+    CrearoperacionesComponent
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule,
+    HttpClientModule   
   ],
   exports: [
     HeaderComponent,

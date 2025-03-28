@@ -59,3 +59,34 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px);
   }
+
+  .saldo {
+    background-color: #ffee00;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    border: 1px solid #e6d600;
+  }
+  
+  .saldo h3 {
+    color: #333;
+    margin-top: 0;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e6d600;
+  }
+  
+  .saldo p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .saldo strong {
+    font-weight: bold;
+    margin-right: 5px;
+  }

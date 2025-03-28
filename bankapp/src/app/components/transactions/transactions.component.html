@@ -21,13 +21,14 @@
     <div class="date-time">
       <p>La fecha actual es: {{ fechaActual }}</p>
       <p>La hora actual es: {{ horaActual }}</p>
+      <p>Usuario: {{state.userEmail$ | async}}</p>
     </div>
   
     <h1>Menú de Transacciones</h1>
   
     <h2>Operaciones</h2>
     <div class="transactions">
-      <button>Depósito desde sucursal</button>
+      <button>Depósito desde sucursal</button>    
       <button>Depósito desde cajero automático</button>
       <button>Depósito desde otra cuenta</button>
       <button>Compra en establecimiento físico</button>
@@ -37,7 +38,15 @@
   
     <h2>Consultas</h2>
     <div class="consults">
-      <button>Saldo Cuenta</button>
-      <button>Historial de transacciones</button>
+      <button (click)="getSaldo()">Saldo Cuenta</button>              
+      <button>Historial de transacciones</button>      
     </div>
+    
+    <div class="saldo" *ngIf="mostrarSaldo">
+      <h3>Saldo de la cuenta</h3>
+      <p><strong>Tipo cuenta:</strong> {{tipoCuenta}}</p>
+      <p><strong>Número de Cuenta:</strong> {{nroCuenta}}</p>
+      <p><strong>Saldo Cuenta:</strong> {{saldoCuenta | currency:'COP'}}</p>
+    </div>
+      
   </div>
