@@ -16,4 +16,17 @@ export class State {
   set userEmail(value: string) {
     this._userEmail.next(value);
   }
+
+  clearUserData() {
+    // Restablece el email
+    this._userEmail.next(null);
+    
+    // Restablece otros estados
+    this._users.next([]);
+    this._token.next([]);
+    
+    // Si usas localStorage para persistencia, limpia eso también
+    localStorage.removeItem('userEmail');
+    localStorage.removeItem('token');
+  }
 }
