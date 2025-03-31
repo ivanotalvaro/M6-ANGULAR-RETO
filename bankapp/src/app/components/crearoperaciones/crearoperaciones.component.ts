@@ -55,7 +55,18 @@ export class CrearoperacionesComponent {
         });
       },
       error: (err) => {
-        alert('Error al realizar la transacción: ' + descripcionTransaccion);
+        // Extract the error message from the response
+        let errorMsg = 'Error desconocido';
+        
+        if (err.error && typeof err.error === 'string') {
+          errorMsg = err.error; // Direct error message string
+        } else if (err.error && err.error.message) {
+          errorMsg = err.error.message; // Error in message property
+        } else if (err.message) {
+          errorMsg = err.message; // Error in the error object itself
+        }
+        
+        alert(`Error al realizar la transacción "${descripcionTransaccion}": ${errorMsg}`);
       }
     });
   }
